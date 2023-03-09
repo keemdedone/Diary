@@ -1,19 +1,16 @@
 <div class="mother-conponent" [class]="themeService.getTheme()">
   <div class="header">
-    <mat-toolbar color="primary">
-      <button mat-icon-button class="icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>My App</span>
-      <span class="spacer"></span>
-      <button mat-icon-button class="icon favorite-icon">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button mat-icon-button class="icon" (click)="toggleTheme()">
-        <mat-icon>share</mat-icon>
-      </button>
-    </mat-toolbar>
+    <app-app-bar (openSide)="openSideChange($event)"></app-app-bar>
   </div>
-  <div class="body"></div>
-  <div class="footer"></div>
+  <div class="body">
+    <div class="side-bar">
+      <app-app-side [isOpen]="openValue"></app-app-side>
+    </div>
+    <div class="content">
+      <div class="sample">Content</div>
+    </div>
+  </div>
+  <div class="footer">
+    <app-app-footer></app-app-footer>
+  </div>
 </div>

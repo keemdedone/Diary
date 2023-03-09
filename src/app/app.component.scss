@@ -1,7 +1,29 @@
-.mother-conponent {
-    min-height: 100vh;
+.content,
+.side-bar,
+.footer {
+    transition: background-color 0.35s ease;
+    background-color: var(--primary-bg);
+    color: var(--primary-color);
 }
 
-.spacer {
-    flex: 1 1 auto;
+.body {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 200px calc(100% - 200px);
+
+    .side-bar {
+        border-right: 1px solid var(--border-color-main);
+    }
+}
+
+.footer {
+    border-top: 1px solid var(--border-color-main);
+    height: 200px;
+}
+
+@media screen and (max-width:1280px) {
+    .body {
+        grid-template-columns: 0px 100%;
+    }
 }

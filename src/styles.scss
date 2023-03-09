@@ -2,6 +2,12 @@
 
 @include mat.core();
 
+:root {
+  --border-color-main: rgba(0, 0, 0, 0.12);
+  --primary-bg: #FFFFFF;
+  --primary-color: #000000;
+}
+
 $dark-theme: mat.define-dark-theme((color: (primary: mat.define-palette(mat.$pink-palette),
       accent: mat.define-palette(mat.$blue-grey-palette),
       warn: mat.define-palette(mat.$red-palette),
@@ -19,7 +25,18 @@ $light-theme: mat.define-light-theme((color: (primary: mat.define-palette(mat.$i
 @include mat.all-component-themes($light-theme);
 
 .dark-theme {
+  --primary-bg: #303030;
+  --primary-color: #FFFFFF;
+  --border-color-main: #606060;
   @include mat.all-component-colors($dark-theme);
+}
+
+.mat-primary,
+.mat-accent,
+.mat-warn {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
 }
 
 * {

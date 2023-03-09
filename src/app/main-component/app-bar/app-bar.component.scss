@@ -1,0 +1,14 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.menu {
+    display: none;
+    margin: 0 10px;
+}
+
+@media screen and (max-width:1280px) {
+    .menu {
+        display: block;
+    }
+}
