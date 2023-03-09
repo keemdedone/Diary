@@ -2,11 +2,8 @@
   <button mat-icon-button class="icon" class="menu" (click)="toggleSide()">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>My App</span>
+  <h1 routerLink="diary" class="logo">My Diary App</h1>
   <span class="spacer"></span>
-  <button mat-icon-button class="icon favorite-icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
   <button mat-icon-button class="icon" (click)="toggleTheme()">
     <mat-icon>{{ isDarkTheme ? "light_mode" : "dark_mode" }}</mat-icon>
   </button>

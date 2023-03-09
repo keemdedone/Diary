@@ -1,5 +1,5 @@
 <div class="mother-conponent" [class]="themeService.getTheme()">
-  <div class="header">
+  <div class="header mat-elevation-z10">
     <app-app-bar (openSide)="openSideChange($event)"></app-app-bar>
   </div>
   <div class="body">
@@ -7,7 +7,7 @@
       <app-app-side [isOpen]="openValue"></app-app-side>
     </div>
     <div class="content">
-      <div class="sample">Content</div>
+      <router-outlet></router-outlet>
     </div>
   </div>
   <div class="footer">

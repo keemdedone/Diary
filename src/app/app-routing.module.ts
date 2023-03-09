@@ -1,10 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundMainComponent } from './pages/not-found/not-found-main/not-found-main.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'diary',
+    pathMatch: 'full',
+  },
+  {
+    path: 'diary',
+    loadChildren: () =>
+      import('./pages/diary/diary-routing.module').then(
+        (d) => d.DiaryRoutingModule
+      ),
+  },
+  {
+    path: '**',
+    component: NotFoundMainComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

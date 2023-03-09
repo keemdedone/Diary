@@ -7,10 +7,17 @@ import { AppFooterComponent } from './app-footer/app-footer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [AppBarComponent, AppSideComponent, AppFooterComponent],
-  imports: [CommonModule, MatToolbarModule, MatIconModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    AppRoutingModule,
+  ],
   exports: [AppBarComponent, AppSideComponent, AppFooterComponent],
 })
 export class MainComponentModule {}

@@ -6,6 +6,7 @@
   --border-color-main: rgba(0, 0, 0, 0.12);
   --primary-bg: #FFFFFF;
   --primary-color: #000000;
+  --primary-hover: rgba(66, 66, 66, 0.25);
 }
 
 $dark-theme: mat.define-dark-theme((color: (primary: mat.define-palette(mat.$pink-palette),
@@ -28,6 +29,7 @@ $light-theme: mat.define-light-theme((color: (primary: mat.define-palette(mat.$i
   --primary-bg: #303030;
   --primary-color: #FFFFFF;
   --border-color-main: #606060;
+  --primary-hover: rgba(255, 255, 255, 0.25);
   @include mat.all-component-colors($dark-theme);
 }
 
