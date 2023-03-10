@@ -1,5 +1,7 @@
 <div class="side-container" [ngClass]="isOpen ? 'open' : ''">
   <div class="menu-list" *ngFor="let link of menu">
-    <a mat-button [routerLink]="toLowerCase(link)" class="list">{{ link }}</a>
+    <a mat-button color="primary" [routerLink]="toLowerCase(link)" class="list">
+      {{ link }}
+    </a>
   </div>
 </div>

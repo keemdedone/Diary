@@ -1,0 +1,40 @@
+.diary-post-page {
+    margin: 3rem auto;
+}
+
+.post-box {
+    margin: 8px auto;
+
+    .card-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 16px 0;
+        margin-bottom: 8px;
+
+        .card-action-menu {
+            display: flex;
+            gap: 5px;
+            justify-content: space-between;
+
+            .action-btn {
+                min-width: 36px;
+                height: 36px;
+                width: 36px;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+    }
+}
+
+.no-post {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

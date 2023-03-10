@@ -1,0 +1,46 @@
+<div class="diary-post-page">
+  <ng-container [ngSwitch]="allPost && allPost.length > 0">
+    <div *ngSwitchCase="true">
+      <div class="post-box" *ngFor="let post of allPost; let i = index">
+        <mat-card>
+          <mat-card-header class="card-head">
+            <mat-card-title>{{ post.date }} : {{ post.title }}</mat-card-title>
+            <div class="card-action-menu">
+              <button
+                mat-icon-button
+                color="primary"
+                class="action-btn"
+                (click)="onEdit(i)"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button
+                mat-icon-button
+                color="warn"
+                class="action-btn"
+                (click)="onRemove(i)"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          </mat-card-header>
+          <mat-card-content>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Repudiandae porro necessitatibus deleniti ex aperiam eum odio, ut
+            iure est earum optio temporibus corrupti quo eligendi. Recusandae
+            mollitia ad maxime ratione? Ducimus architecto, obcaecati neque,
+            eum, similique cupiditate consequatur voluptatum totam excepturi
+            unde aspernatur natus sit reprehenderit assumenda ipsum amet
+            placeat. Mollitia perspiciatis doloremque nihil iusto facilis quae
+            non nemo! Minima. Adipisci debitis eum architecto aperiam.
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div *ngSwitchDefault>
+      <div class="no-post">
+        <h1>No Post...</h1>
+      </div>
+    </div>
+  </ng-container>
+</div>

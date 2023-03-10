@@ -2,18 +2,28 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DiaryRoutingModule } from './diary-routing.module';
-import { DiaryComponent } from './diary.component';
 import { DiaryMainComponent } from './diary-main/diary-main.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { DiaryPostComponent } from './diary-post/diary-post.component';
 
 @NgModule({
-  declarations: [
-    DiaryComponent,
-    DiaryMainComponent
-  ],
+  declarations: [DiaryMainComponent, DiaryPostComponent],
   imports: [
     CommonModule,
-    DiaryRoutingModule
-  ]
+    DiaryRoutingModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+  ],
 })
-export class DiaryModule { }
+export class DiaryModule {}

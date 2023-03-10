@@ -11,9 +11,7 @@ const routes: Routes = [
   {
     path: 'diary',
     loadChildren: () =>
-      import('./pages/diary/diary-routing.module').then(
-        (d) => d.DiaryRoutingModule
-      ),
+      import('./pages/diary/diary.module').then((d) => d.DiaryModule),
   },
   {
     path: '**',
