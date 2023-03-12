@@ -1,0 +1,41 @@
+.container-grid {
+    max-width: 900px;
+    margin: auto;
+    padding: 15px;
+
+    .title {
+        font-weight: 400;
+    }
+
+    .link-list {
+        padding: 20px 0;
+        
+        ul {
+            display: flex;
+            text-align: center;
+            list-style: none;
+            gap: 10px;
+
+            li {
+                cursor: pointer;
+            }
+
+            .logo-box {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 64px;
+                width: 150px;
+            }
+
+            .link {
+                text-decoration: none;
+                color: #87ceeb;
+
+                &:hover {
+                    color: #00b7ff;
+                }
+            }
+        }
+    }
+}
