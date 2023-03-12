@@ -59,3 +59,29 @@
         gap: 10px;
     }
 }
+
+.popup-remove-alert {
+    .popup-title {
+        color: var(--primary-color);
+    }
+
+    .action-menu {
+        margin-top: 8px;
+        padding: 8px 16px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+
+        button {
+            min-width: 48px;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+
+            .icon {
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+}

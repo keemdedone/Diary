@@ -84,3 +84,33 @@
     </form>
   </mat-card>
 </ng-template>
+
+<ng-template #RemoveAlert>
+  <mat-card class="popup-remove-alert">
+    <mat-card-header>
+      <mat-card-title class="popup-title"
+        >Are you sure to delete this post ?</mat-card-title
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card-actions class="action-menu">
+        <button
+          mat-flat-button
+          type="button"
+          color="warn"
+          [matDialogClose]="false"
+        >
+          <mat-icon class="icon">close</mat-icon>
+        </button>
+        <button
+          mat-flat-button
+          type="button"
+          color="primary"
+          [matDialogClose]="true"
+        >
+          <mat-icon class="icon">check</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+</ng-template>

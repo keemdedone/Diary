@@ -30,6 +30,12 @@ export class DataService {
     this.postSubject.next(this.postInformation);
   }
 
+  updateSinglePost(index: number, data: Post) {
+    this.postInformation[index] = data;
+    this.updateStorage();
+    this.postSubject.next(this.postInformation);
+  }
+
   getPostData(): BehaviorSubject<Post[]> {
     return this.postSubject;
   }
@@ -44,9 +50,9 @@ export class DataService {
     this.postSubject.next(this.postInformation);
   }
 
-  updateSingglePost(index: number) {
+  getSinglePostData(index: number) {
     let selectEdit = this.postInformation[index];
-    console.log(selectEdit);
+    return selectEdit;
   }
 
   formatDate(date: Date) {

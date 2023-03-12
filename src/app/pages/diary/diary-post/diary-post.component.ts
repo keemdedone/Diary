@@ -11,9 +11,11 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class DiaryPostComponent implements OnInit {
   @ViewChild('PostEdit') openPostEdit!: TemplateRef<HTMLElement>;
+  @ViewChild('RemoveAlert') openreomveAlert!: TemplateRef<HTMLElement>;
 
   allPost!: Post[];
   editForm: FormGroup;
+  dialogIndex!: number;
 
   constructor(
     private dataService: DataService,
@@ -38,21 +40,37 @@ export class DiaryPostComponent implements OnInit {
   }
 
   onRemove(index: number) {
-    this.dataService.deletePost(index);
+    this.dialog
+      .open(this.openreomveAlert, {
+        panelClass: 'custom-dialog',
+        autoFocus: false,
+      })
+      .afterClosed()
+      .subscribe((result: boolean) => {
+        if (result === true) {
+          this.dataService.deletePost(index);
+        }
+      });
   }
 
   onEdit(index: number) {
+    this.dialogIndex = index;
     this.dialog.open(this.openPostEdit, {
       panelClass: 'custom-dialog',
       autoFocus: false,
     });
-    // this.dataService.updateSingglePost(index);
+    const editData = this.dataService.getSinglePostData(index);
+    this.editForm.patchValue({
+      title: editData.title,
+      text: editData.text,
+    });
   }
 
   editPost() {
     if (!this.editForm.invalid) {
       const forms = this.editForm.value;
-      console.log(forms);
+      this.dataService.updateSinglePost(this.dialogIndex, forms);
+      this.dialog.closeAll();
     }
   }
 }
