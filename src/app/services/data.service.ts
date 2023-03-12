@@ -27,7 +27,7 @@ export class DataService {
       this.postInformation.push(data);
     }
     this.updateStorage();
-    this.postSubject.next(this.postInformation); // Emit new value to subscribers
+    this.postSubject.next(this.postInformation);
   }
 
   getPostData(): BehaviorSubject<Post[]> {
@@ -44,5 +44,15 @@ export class DataService {
     this.postSubject.next(this.postInformation);
   }
 
-  updateSingglePost(index: number) {}
+  updateSingglePost(index: number) {
+    let selectEdit = this.postInformation[index];
+    console.log(selectEdit);
+  }
+
+  formatDate(date: Date) {
+    const d = date.getDate().toString().padStart(2, '0');
+    const m = (date.getMonth() + 1).toString().padStart(2, '0');
+    const y = date.getFullYear().toString();
+    return d + '/' + m + '/' + y;
+  }
 }

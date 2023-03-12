@@ -38,3 +38,24 @@
     justify-content: center;
     align-items: center;
 }
+
+.popup-container {
+    width: 800px;
+    height: auto;
+
+    .diary-space {
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .edit-title {
+        color: var(--primary-color);
+    }
+
+    .diary-menu {
+        padding: 8px 16px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+}

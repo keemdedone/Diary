@@ -1,11 +1,15 @@
+import { OverlayContainer } from '@angular/cdk/overlay';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
-  private currentTheme = 'light-theme';
-  private themeCache = localStorage.getItem('default_theme') || null;
+  private currentTheme = 'dark-theme';
+  private overlayElement = this.overlayContainer.getContainerElement(); // dialog overlay element
+  // private themeCache = localStorage.getItem('default_theme') || null;
+
+  constructor(private overlayContainer: OverlayContainer) {}
 
   setTheme(theme: string): void {
     this.currentTheme = theme;
@@ -13,6 +17,7 @@ export class ThemeService {
   }
 
   getTheme(): string {
+    this.overlayElement.classList.add(this.currentTheme);
     return this.currentTheme;
   }
 }

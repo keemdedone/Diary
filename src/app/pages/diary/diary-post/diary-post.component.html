@@ -25,14 +25,7 @@
             </div>
           </mat-card-header>
           <mat-card-content>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Repudiandae porro necessitatibus deleniti ex aperiam eum odio, ut
-            iure est earum optio temporibus corrupti quo eligendi. Recusandae
-            mollitia ad maxime ratione? Ducimus architecto, obcaecati neque,
-            eum, similique cupiditate consequatur voluptatum totam excepturi
-            unde aspernatur natus sit reprehenderit assumenda ipsum amet
-            placeat. Mollitia perspiciatis doloremque nihil iusto facilis quae
-            non nemo! Minima. Adipisci debitis eum architecto aperiam.
+            {{ post.text }}
           </mat-card-content>
         </mat-card>
       </div>
@@ -44,3 +37,50 @@
     </div>
   </ng-container>
 </div>
+
+<ng-template #PostEdit>
+  <mat-card class="popup-container">
+    <form [formGroup]="editForm" (ngSubmit)="editPost()">
+      <mat-card-header>
+        <mat-card-title class="edit-title"
+          >What are you changing ?</mat-card-title
+        >
+      </mat-card-header>
+
+      <mat-card-content>
+        <mat-form-field
+          class="diary-space title"
+          subscriptSizing="dynamic"
+          hideRequiredMarker="true"
+        >
+          <mat-label>Topic</mat-label>
+          <input matInput formControlName="title" />
+        </mat-form-field>
+
+        <mat-form-field
+          class="diary-space"
+          subscriptSizing="dynamic"
+          hideRequiredMarker="true"
+        >
+          <mat-label>Write your idea</mat-label>
+          <textarea
+            matInput
+            cdkTextareaAutosize
+            formControlName="text"
+            cdkAutosizeMinRows="7"
+            #autosize="cdkTextareaAutosize"
+          ></textarea>
+        </mat-form-field>
+      </mat-card-content>
+
+      <mat-card-actions class="diary-menu">
+        <button mat-button type="button" color="warn" matDialogClose>
+          <mat-icon>close</mat-icon> CANCEL
+        </button>
+        <button mat-button type="submit" color="primary">
+          <mat-icon>save</mat-icon> UPDATE
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</ng-template>

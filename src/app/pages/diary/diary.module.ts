@@ -11,6 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+
 import { DiaryPostComponent } from './diary-post/diary-post.component';
 
 @NgModule({
@@ -24,6 +26,7 @@ import { DiaryPostComponent } from './diary-post/diary-post.component';
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
+    MatDialogModule
   ],
 })
 export class DiaryModule {}

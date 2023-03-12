@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Post } from 'src/app/model/type';
 import { DataService } from 'src/app/services/data.service';
 
@@ -8,9 +10,22 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./diary-post.component.scss'],
 })
 export class DiaryPostComponent implements OnInit {
-  allPost!: Post[];
+  @ViewChild('PostEdit') openPostEdit!: TemplateRef<HTMLElement>;
 
-  constructor(private dataService: DataService) {}
+  allPost!: Post[];
+  editForm: FormGroup;
+
+  constructor(
+    private dataService: DataService,
+    private dialog: MatDialog,
+    private fb: FormBuilder
+  ) {
+    this.editForm = this.fb.group({
+      title: [null, Validators.required],
+      text: [null, Validators.required],
+      date: this.dataService.formatDate(new Date()),
+    });
+  }
 
   ngOnInit(): void {
     this.ongetData();
@@ -27,6 +42,17 @@ export class DiaryPostComponent implements OnInit {
   }
 
   onEdit(index: number) {
-    this.dataService.updateSingglePost(index);
+    this.dialog.open(this.openPostEdit, {
+      panelClass: 'custom-dialog',
+      autoFocus: false,
+    });
+    // this.dataService.updateSingglePost(index);
+  }
+
+  editPost() {
+    if (!this.editForm.invalid) {
+      const forms = this.editForm.value;
+      console.log(forms);
+    }
   }
 }
