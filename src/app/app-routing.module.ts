@@ -14,6 +14,11 @@ const routes: Routes = [
       import('./pages/diary/diary.module').then((d) => d.DiaryModule),
   },
   {
+    path: 'calendar',
+    loadChildren: () =>
+      import('./pages/calendar/calendar.module').then((c) => c.CalendarModule),
+  },
+  {
     path: '**',
     pathMatch: 'full',
     component: NotFoundMainComponent,

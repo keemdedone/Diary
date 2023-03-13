@@ -1,1 +1,1 @@
-export const routerLinkMenu = ['Diary'];
+export const routerLinkMenu = ['Diary', 'Calendar'];

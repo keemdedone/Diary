@@ -1,0 +1,30 @@
+.calendar-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.calendar-table {
+    margin-top: 4rem;
+    max-width: 700px;
+
+    .calendar-head,
+    .calendar-body {
+        display: flex;
+        flex-wrap: wrap;
+
+        .day {
+            font-size: 24px;
+            border: 1px solid var(--border-color-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 80px;
+
+            &.head {
+                height: 50px;
+            }
+        }
+    }
+}
