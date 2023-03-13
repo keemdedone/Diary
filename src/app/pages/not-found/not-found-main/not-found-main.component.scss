@@ -1,0 +1,77 @@
+.not-found {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.not-found-container {
+    margin-top: 15%;
+
+    .main-text {
+        user-select: none;
+        position: relative;
+        font-size: 13rem;
+        z-index: 2;
+
+        &::before,&::after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            content: attr(data-text);
+        }
+
+        &::before {
+            animation: glitch 0.3s linear 6;
+            animation-delay: 2s;
+            color: #303f9f;
+        }
+
+        &::after {
+            animation: glitch 0.3s linear 6 reverse;
+            animation-delay: 2s;
+            color: #3cccf8;
+        }
+        
+        @keyframes glitch {
+            0% {
+                top: 0;
+                left: 0;
+            }
+        
+            20% {
+                top: -5px;
+                left: -5px;
+            }
+        
+            40% {
+                top: 5px;
+                left: 5px;
+            }
+        
+            60% {
+                top: -5px;
+                left: 5px;
+            }
+        
+            80% {
+                top: 5px;
+                left: -5px;
+            }
+        
+            100% {
+                top: 0px;
+                left: 0px;
+            }
+        }
+    }
+
+    .sub-text,
+    .go-back {
+        text-align: center;
+    }
+
+    .go-back {
+        margin: 1rem auto;
+    }
+}
