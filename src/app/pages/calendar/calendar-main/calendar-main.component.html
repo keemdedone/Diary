@@ -1,5 +1,36 @@
 <div class="calendar-container">
   <div class="calendar-table">
+    <div class="top">
+      <div class="date-text">
+        <h1>{{ monthName[selectMonth] }} {{ selectYear }}</h1>
+      </div>
+      <div class="menu">
+        <button
+          mat-flat-button
+          color="accent"
+          class="menu-btn"
+          (click)="onCurrentDate()"
+        >
+          <mat-icon class="icon">calendar_month</mat-icon>
+        </button>
+        <button
+          mat-flat-button
+          color="primary"
+          class="menu-btn"
+          (click)="onPreviousMonth()"
+        >
+          <mat-icon class="icon">chevron_left</mat-icon>
+        </button>
+        <button
+          mat-flat-button
+          color="primary"
+          class="menu-btn"
+          (click)="onNextMonth()"
+        >
+          <mat-icon class="icon">chevron_right</mat-icon>
+        </button>
+      </div>
+    </div>
     <div class="calendar-head">
       <div class="day head" *ngFor="let day of dayName">{{ day }}</div>
     </div>

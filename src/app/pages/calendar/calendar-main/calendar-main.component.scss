@@ -8,6 +8,29 @@
     margin-top: 4rem;
     max-width: 700px;
 
+    .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .menu {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin: .8rem 0;
+
+            .menu-btn {
+                min-width: 36px;
+
+                .icon {
+                    padding: 0;
+                    margin: 0;
+                    scale: 1.2;
+                }
+            }
+        }
+    }
+
     .calendar-head,
     .calendar-body {
         display: flex;
