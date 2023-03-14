@@ -1,5 +1,6 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
@@ -12,11 +13,24 @@ export class AppBarComponent {
 
   isDarkTheme: boolean = true; /* SET true if darkmdoe Default */
   openSideBar: boolean = false;
+  lang: number;
+  Text = {
+    translate: ['Thai language', 'เปลี่ยนเป็นภาษาอังกฤษ'],
+    darkmode: ['Dark mode', 'ธีมเข้ม'],
+  };
 
   constructor(
     public themeService: ThemeService,
+    private dataService: DataService,
     private overlayContainer: OverlayContainer
-  ) {}
+  ) {
+    this.lang = this.dataService.getLanguage();
+  }
+
+  switchLanguage() {
+    const switchLang = this.lang === 0 ? 1 : 0;
+    this.dataService.setLanguege(switchLang);
+  }
 
   toggleTheme(): void {
     const currentTheme = this.themeService.getTheme();

@@ -16,6 +16,21 @@ export class DiaryPostComponent implements OnInit {
   allPost!: Post[];
   editForm: FormGroup;
   dialogIndex!: number;
+  lang: number;
+  Text = {
+    date: ['Date', 'วันที่'],
+    noPost: ['No Post...', 'ไม่มีโพส...'],
+    changing: ['What are you changing ?', 'คุณต้องการเปลี่ยนแปลงอะไร'],
+    updatetitle: ['Update post', 'แก้ไขโพส'],
+    updatetopic: ['Topic', 'หัวข้อ'],
+    textarea: ['Write your idea', 'เขียนโน้ตของคุณ'],
+    cancel: ['CANCEL', 'ยกเลิก'],
+    updateBtn: ['UPDATE', 'อัปเดต'],
+    removeTitle: [
+      'Are you sure to delete this post ?',
+      'คุณแน่ใจที่จะทำการลบโพสนี้หรือไม่ ?',
+    ],
+  };
 
   constructor(
     private dataService: DataService,
@@ -27,6 +42,7 @@ export class DiaryPostComponent implements OnInit {
       text: [null, Validators.required],
       date: this.dataService.formatDate(new Date()),
     });
+    this.lang = this.dataService.getLanguage();
   }
 
   ngOnInit(): void {

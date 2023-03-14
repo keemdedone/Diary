@@ -2,7 +2,7 @@
   <mat-card>
     <form [formGroup]="postForm" (ngSubmit)="createPost()">
       <mat-card-header>
-        <mat-card-title>What are you thinking ?</mat-card-title>
+        <mat-card-title>{{ Text.title[lang] }}</mat-card-title>
       </mat-card-header>
 
       <mat-card-content>
@@ -11,8 +11,8 @@
           subscriptSizing="dynamic"
           hideRequiredMarker="true"
         >
-          <mat-label>Topic</mat-label>
-          <input matInput formControlName="title" />
+          <mat-label>{{ Text.topic[lang] }}</mat-label>
+          <input matInput formControlName="title" autocomplete="off" />
         </mat-form-field>
 
         <mat-form-field
@@ -20,9 +20,10 @@
           subscriptSizing="dynamic"
           hideRequiredMarker="true"
         >
-          <mat-label>Write your idea</mat-label>
+          <mat-label>{{ Text.textarea[lang] }}</mat-label>
           <textarea
             matInput
+            autocomplete="off"
             cdkTextareaAutosize
             formControlName="text"
             cdkAutosizeMinRows="7"
@@ -33,10 +34,10 @@
 
       <mat-card-actions class="diary-menu">
         <button mat-button type="reset" color="accent">
-          <mat-icon>restart_alt</mat-icon> CLEAR
+          <mat-icon>restart_alt</mat-icon> {{ Text.clear[lang] }}
         </button>
         <button mat-button type="submit" color="primary">
-          <mat-icon>save</mat-icon> CREATE
+          <mat-icon>save</mat-icon> {{ Text.create[lang] }}
         </button>
       </mat-card-actions>
     </form>

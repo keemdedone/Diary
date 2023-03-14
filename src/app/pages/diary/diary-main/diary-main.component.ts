@@ -9,6 +9,14 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class DiaryMainComponent {
   postForm: FormGroup;
+  lang: number;
+  Text = {
+    title: ['What are you thinking ?', 'คุณกำลังคิดอะไรอยู่ ?'],
+    topic: ['Topic', 'หัวข้อ'],
+    textarea: ['Write your note', 'เขียนโน้ตของคุณ'],
+    clear: ['CLEAR', 'ล้างค่า'],
+    create: ['CREATE', 'สร้าง'],
+  };
 
   constructor(private fb: FormBuilder, private dataService: DataService) {
     this.postForm = this.fb.group({
@@ -16,6 +24,7 @@ export class DiaryMainComponent {
       text: [null, Validators.required],
       date: this.dataService.formatDate(new Date()),
     });
+    this.lang = this.dataService.getLanguage();
   }
 
   createPost() {

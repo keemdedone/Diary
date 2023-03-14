@@ -8,6 +8,7 @@ import { Post } from '../model/type';
 export class DataService {
   private postInformation: Post[] = [];
   private postSubject = new BehaviorSubject<Post[]>([]);
+  private language = localStorage.getItem('LANG') || 0;
 
   constructor() {
     const storedData = localStorage.getItem('POST_DATA');
@@ -15,6 +16,20 @@ export class DataService {
       this.postInformation = JSON.parse(storedData);
     }
     this.postSubject.next(this.postInformation);
+  }
+
+  getLanguage() {
+    return Number(this.language);
+  }
+
+  setLanguege(lang: number) {
+    if (lang !== Number(this.language)) {
+      localStorage.setItem('LANG', String(lang));
+      setTimeout(() => {
+        location.reload();
+      }, 500);
+    }
+    return;
   }
 
   updatePost(data: Post): void {

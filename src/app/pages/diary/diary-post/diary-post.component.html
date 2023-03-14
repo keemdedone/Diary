@@ -4,7 +4,11 @@
       <div class="post-box" *ngFor="let post of allPost; let i = index">
         <mat-card>
           <mat-card-header class="card-head">
-            <mat-card-title>{{ post.date }} : {{ post.title }}</mat-card-title>
+            <mat-card-title>
+              {{ Text.date[lang] }}
+              {{ post.date }} :
+              <b>{{ post.title }}</b>
+            </mat-card-title>
             <div class="card-action-menu">
               <button
                 mat-icon-button
@@ -32,7 +36,7 @@
     </div>
     <div *ngSwitchDefault>
       <div class="no-post">
-        <h1>No Post...</h1>
+        <h1>{{ Text.noPost[lang] }}</h1>
       </div>
     </div>
   </ng-container>
@@ -42,9 +46,9 @@
   <mat-card class="popup-container">
     <form [formGroup]="editForm" (ngSubmit)="editPost()">
       <mat-card-header>
-        <mat-card-title class="edit-title"
-          >What are you changing ?</mat-card-title
-        >
+        <mat-card-title class="edit-title">
+          {{ Text.updatetitle[lang] }}
+        </mat-card-title>
       </mat-card-header>
 
       <mat-card-content>
@@ -53,8 +57,8 @@
           subscriptSizing="dynamic"
           hideRequiredMarker="true"
         >
-          <mat-label>Topic</mat-label>
-          <input matInput formControlName="title" />
+          <mat-label>{{ Text.updatetopic[lang] }}</mat-label>
+          <input matInput formControlName="title" autocomplete="off" />
         </mat-form-field>
 
         <mat-form-field
@@ -62,9 +66,10 @@
           subscriptSizing="dynamic"
           hideRequiredMarker="true"
         >
-          <mat-label>Write your idea</mat-label>
+          <mat-label>{{ Text.textarea[lang] }}</mat-label>
           <textarea
             matInput
+            autocomplete="off"
             cdkTextareaAutosize
             formControlName="text"
             cdkAutosizeMinRows="7"
@@ -75,10 +80,10 @@
 
       <mat-card-actions class="diary-menu">
         <button mat-button type="button" color="warn" matDialogClose>
-          <mat-icon>close</mat-icon> CANCEL
+          <mat-icon>close</mat-icon> {{ Text.cancel[lang] }}
         </button>
         <button mat-button type="submit" color="primary">
-          <mat-icon>save</mat-icon> UPDATE
+          <mat-icon>save</mat-icon> {{ Text.updateBtn[lang] }}
         </button>
       </mat-card-actions>
     </form>
@@ -88,9 +93,9 @@
 <ng-template #RemoveAlert>
   <mat-card class="popup-remove-alert">
     <mat-card-header>
-      <mat-card-title class="popup-title"
-        >Are you sure to delete this post ?</mat-card-title
-      >
+      <mat-card-title class="popup-title">
+        {{ Text.removeTitle[lang] }}
+      </mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <mat-card-actions class="action-menu">

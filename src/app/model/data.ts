@@ -1,1 +1,10 @@
-export const routerLinkMenu = ['Diary', 'Calendar'];
+export const routerLinkMenu = [
+  {
+    route: 'diary',
+    Name: ['Diary', 'บันทึกความจำ'],
+  },
+  {
+    route: 'calendar',
+    Name: ['Calendar', 'ปฎิทิน'],
+  },
+];

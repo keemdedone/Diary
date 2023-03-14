@@ -2,9 +2,22 @@
   <button mat-icon-button class="icon" class="menu" (click)="toggleSide()">
     <mat-icon>menu</mat-icon>
   </button>
-  <h1 routerLink="diary" class="logo">My Custom App</h1>
+  <h1 routerLink="diary" class="logo">ARC-02</h1>
   <span class="spacer"></span>
-  <button mat-icon-button class="icon" (click)="toggleTheme()">
+  <button
+    mat-icon-button
+    class="icon"
+    [matTooltip]="Text.translate[lang]"
+    (click)="switchLanguage()"
+  >
+    <mat-icon>translate</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="icon"
+    [matTooltip]="Text.darkmode[lang]"
+    (click)="toggleTheme()"
+  >
     <mat-icon>{{ isDarkTheme ? "light_mode" : "dark_mode" }}</mat-icon>
   </button>
 </mat-toolbar>
