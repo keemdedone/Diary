@@ -2,7 +2,7 @@
   <div class="calendar-table">
     <div class="top">
       <div class="date-text">
-        <h1>{{ monthName[selectMonth] }} {{ selectYear }}</h1>
+        <h1>{{ monthName[lang][selectMonth] }} {{ selectYear }}</h1>
       </div>
       <div class="menu">
         <button
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="calendar-head">
-      <div class="day head" *ngFor="let day of dayName">{{ day }}</div>
+      <div class="day head" *ngFor="let day of dayName[lang]">{{ day }}</div>
     </div>
     <div class="calendar-body">
       <div class="day fill" *ngFor="let day of daysBefore; let i = index"></div>

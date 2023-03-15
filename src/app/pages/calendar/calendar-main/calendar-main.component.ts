@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-calendar-main',
@@ -6,20 +7,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calendar-main.component.scss'],
 })
 export class CalendarMainComponent implements OnInit {
-  dayName = ['Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+  dayName = [
+    ['Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
+    ['จันทร์', 'อังคาร', 'พุธ', 'พฤหัส', 'ศุกร์', 'เสาร์', 'อาทิตย์'],
+  ];
   monthName = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
+    [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ],
+    [
+      'มกราคม',
+      'กุมภาพันธ์',
+      'มีนาคม',
+      'เมษายน',
+      'พฤษภาคม',
+      'มิถุนายน',
+      'กรกฎาคม',
+      'สิงหาคม',
+      'กันยายน',
+      'ตุลาคม',
+      'พฤศจิกายน',
+      'ธันวาคม',
+    ],
   ];
   days: boolean[] = [];
   daysBefore: string[] = [];
@@ -27,10 +47,12 @@ export class CalendarMainComponent implements OnInit {
   currentDate = new Date();
   selectMonth: number;
   selectYear: number;
+  lang: number;
 
-  constructor() {
+  constructor(private dataService: DataService) {
     this.selectMonth = new Date().getMonth();
     this.selectYear = new Date().getFullYear();
+    this.lang = this.dataService.getLanguage();
   }
 
   ngOnInit(): void {
