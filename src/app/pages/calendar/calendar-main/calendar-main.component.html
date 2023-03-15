@@ -35,9 +35,9 @@
       <div class="day head" *ngFor="let day of dayName[lang]">{{ day }}</div>
     </div>
     <div class="calendar-body">
-      <div class="day fill" *ngFor="let day of daysBefore; let i = index"></div>
+      <div class="day fill" *ngFor="let day of daysBefore"></div>
       <div class="day" *ngFor="let day of days; let i = index">{{ i + 1 }}</div>
-      <div class="day fill" *ngFor="let day of daysAfter; let i = index"></div>
+      <div class="day fill" *ngFor="let day of daysAfter"></div>
     </div>
   </div>
 </div>

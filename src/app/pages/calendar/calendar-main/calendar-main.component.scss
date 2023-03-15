@@ -1,17 +1,19 @@
 .calendar-container {
-    min-height: 100vh;
     display: flex;
     justify-content: center;
 }
 
 .calendar-table {
     margin-top: 4rem;
-    max-width: 700px;
 
     .top {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        .date-text {
+            font-size: clamp(8px, 2vw, 16px);
+        }
 
         .menu {
             display: flex;
@@ -20,7 +22,7 @@
             margin: .8rem 0;
 
             .menu-btn {
-                min-width: 36px;
+                min-width: 24px;
 
                 .icon {
                     padding: 0;
@@ -28,25 +30,39 @@
                     scale: 1.2;
                 }
             }
+
+            @media screen and (max-width:425px) {
+                .menu-btn {
+                    min-width: 24px;
+                    padding: 0 8px 0 8px;
+                    height: 28px;
+
+                    .icon {
+                        padding: 0;
+                        margin: 0;
+                        scale: 0.8;
+                    }
+                }
+            }
         }
     }
 
     .calendar-head,
     .calendar-body {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(7, minmax(40px, 100px));
 
         .day {
-            font-size: 24px;
+            font-size: clamp(12px, 3vw, 24px);
             border: 1px solid var(--border-color-main);
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100px;
-            height: 80px;
+            width: 100%;
+            height: clamp(50px, 10vw, 80px);
 
             &.head {
-                height: 50px;
+                height: clamp(20px, 10vw, 50px);
             }
         }
     }
