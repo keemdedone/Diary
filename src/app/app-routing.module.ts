@@ -19,6 +19,11 @@ const routes: Routes = [
       import('./pages/calendar/calendar.module').then((c) => c.CalendarModule),
   },
   {
+    path: 'todo',
+    loadChildren: () =>
+      import('./pages/todo/todo.module').then((t) => t.TodoModule),
+  },
+  {
     path: '**',
     pathMatch: 'full',
     component: NotFoundMainComponent,

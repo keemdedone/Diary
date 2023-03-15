@@ -7,4 +7,8 @@ export const routerLinkMenu = [
     route: 'calendar',
     Name: ['Calendar', 'ปฎิทิน'],
   },
+  {
+    route: 'todo',
+    Name: ['Todo list', 'รายการสิ่งที่ต้องทำ'],
+  },
 ];
