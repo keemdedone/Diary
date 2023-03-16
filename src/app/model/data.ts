@@ -11,4 +11,8 @@ export const routerLinkMenu = [
     route: 'todo',
     Name: ['Todo list', 'รายการสิ่งที่ต้องทำ'],
   },
+  {
+    route: 'email',
+    Name: ['Email submit', 'ส่งข้อความอิเล็กทรอนิคก์'],
+  },
 ];

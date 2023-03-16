@@ -47,3 +47,41 @@
         }
     }
 }
+
+@media screen and (max-width:768px) {
+    .side-container {
+        position: fixed;
+        width: 100%;
+        height: 70px;
+        transform: translateY(0px);
+        border-right: none;
+        top: unset;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        overflow: auto;
+
+        &.open {
+            transform: translateY(70px);
+        }
+
+        .menu-scroll {
+            display: flex;
+            margin: auto 10px;
+
+            .menu-list {
+                min-width: 130px;
+                border: 2px solid var(--border-color-main);
+                border-radius: 5px;
+
+                .list {
+                    display: flex;
+                    justify-content: center;
+                    font-size: clamp(10px, 2vw, 16px);
+                }
+            }
+        }
+    }
+}

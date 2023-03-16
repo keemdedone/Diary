@@ -3,3 +3,8 @@ export type Post = {
   text?: string;
   date?: string;
 };
+
+export type Todo = {
+  todo?: string[];
+  done?: string[];
+};

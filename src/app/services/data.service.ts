@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Post } from '../model/type';
+import { Post, Todo } from '../model/type';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
   private postInformation: Post[] = [];
+  private todoList: Todo = {};
   private postSubject = new BehaviorSubject<Post[]>([]);
   private language = localStorage.getItem('LANG') || 0;
 
@@ -17,6 +18,16 @@ export class DataService {
     }
     this.postSubject.next(this.postInformation);
   }
+
+  getTodo() {
+    const todoData = localStorage.getItem('TODO');
+    if (todoData) {
+      this.todoList = JSON.parse(todoData);
+    }
+    return this.todoList;
+  }
+
+  setTodo(data: Todo) {}
 
   getLanguage() {
     return Number(this.language);
