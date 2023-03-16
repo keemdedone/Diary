@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundMainComponent } from './pages/not-found/not-found-main/not-found-main.component';
+import { WorkInProcessComponent } from './pages/work-in-process/work-in-process.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,11 @@ const routes: Routes = [
     path: 'todo',
     loadChildren: () =>
       import('./pages/todo/todo.module').then((t) => t.TodoModule),
+  },
+  {
+    path: 'email',
+    pathMatch: 'full',
+    component: WorkInProcessComponent,
   },
   {
     path: '**',

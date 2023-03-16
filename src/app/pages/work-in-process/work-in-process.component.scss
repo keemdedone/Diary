@@ -1,10 +1,10 @@
-.not-found {
+.wip {
     min-height: 100vh;
     display: flex;
     justify-content: center;
 }
 
-.not-found-container {
+.wip-container {
     margin-top: 15%;
 
     .main-text {
@@ -26,13 +26,13 @@
         &::before {
             animation: glitch 0.3s linear 6;
             animation-delay: 2s;
-            color: #303f9f;
+            color: #e91e63;
         }
 
         &::after {
             animation: glitch 0.3s linear 6 reverse;
             animation-delay: 2s;
-            color: #3cccf8;
+            color: #ff8bb1;
         }
 
         @keyframes glitch {

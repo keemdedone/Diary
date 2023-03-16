@@ -10,6 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { WorkInProcessComponent } from '../pages/work-in-process/work-in-process.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     AppSideComponent,
     AppFooterComponent,
     NotFoundMainComponent,
+    WorkInProcessComponent,
   ],
   imports: [
     CommonModule,
