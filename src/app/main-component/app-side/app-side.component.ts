@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
 import { routerLinkMenu } from 'src/app/model/data';
 import { DataService } from 'src/app/services/data.service';
 
@@ -12,7 +13,11 @@ export class AppSideComponent {
   menu = routerLinkMenu;
   lang: number;
 
-  constructor(private dataService: DataService) {
+  constructor(
+    private dataService: DataService,
+    private iconRegistry: MatIconRegistry
+  ) {
+    this.iconRegistry.setDefaultFontSetClass('material-icons-outlined');
     this.lang = this.dataService.getLanguage();
   }
 

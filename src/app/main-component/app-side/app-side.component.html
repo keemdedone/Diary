@@ -7,6 +7,9 @@
         [routerLink]="toLowerCase(link.route)"
         class="list"
       >
+        <mat-icon class="icon">
+          {{ link.icon }}
+        </mat-icon>
         {{ link.Name[lang] }}
       </a>
     </div>
