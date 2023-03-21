@@ -5,6 +5,7 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { DataService } from 'src/app/services/data.service';
+import { MatIconRegistry } from '@angular/material/icon';
 
 @Component({
   selector: 'app-todo-main',
@@ -20,7 +21,11 @@ export class TodoMainComponent implements OnInit {
   done = [''];
   lang: number;
 
-  constructor(private dataService: DataService) {
+  constructor(
+    private dataService: DataService,
+    private iconRegistry: MatIconRegistry
+  ) {
+    this.iconRegistry.setDefaultFontSetClass('material-icons-outlined');
     this.lang = this.dataService.getLanguage();
   }
 
@@ -42,6 +47,13 @@ export class TodoMainComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
+    }
+  }
+
+  createEmtryTodo() {
+    if (this.todo[0] === '') {
+      this.todo[0] = 'Drag here!';
+      this.done[0] = 'Drop here!';
     }
   }
 }

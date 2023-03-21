@@ -1,12 +1,12 @@
 export const routerLinkMenu = [
   {
     route: 'diary',
-    icon: 'edit_square',
+    icon: 'file-signature',
     Name: ['Diary', 'บันทึกความจำ'],
   },
   {
     route: 'calendar',
-    icon: 'calendar_month',
+    icon: 'calendar',
     Name: ['Calendar', 'ปฎิทิน'],
   },
   {

@@ -10,8 +10,10 @@
     .main-text {
         user-select: none;
         position: relative;
-        font-size: 13rem;
-        line-height: 12rem;
+        width: fit-content;
+        margin: auto;
+        font-size: clamp(4rem, 20vw, 13rem);
+        line-height: clamp(5rem, 20vw, 12rem);
         z-index: 2;
 
         &::before,

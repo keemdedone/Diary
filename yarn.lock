@@ -4774,6 +4774,13 @@
   "resolved" "https://registry.npmjs.org/lru-cache/-/lru-cache-7.18.3.tgz"
   "version" "7.18.3"
 
+"lucide-angular@^0.126.0":
+  "integrity" "sha512-cgCIT1BWsK5FUh1Z5UZ8hqOc+5ms/I2FdYYtNtAPvKgOmSLMANR2GKEQqxAbySzn8A17W+cMsAdBUHlol67+fg=="
+  "resolved" "https://registry.npmjs.org/lucide-angular/-/lucide-angular-0.126.0.tgz"
+  "version" "0.126.0"
+  dependencies:
+    "tslib" "^2.4.0"
+
 "magic-string@^0.27.0":
   "integrity" "sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA=="
   "resolved" "https://registry.npmjs.org/magic-string/-/magic-string-0.27.0.tgz"
@@ -6523,7 +6530,7 @@
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   "version" "1.14.1"
 
-"tslib@^2.1.0", "tslib@^2.3.0", "tslib@2.5.0":
+"tslib@^2.1.0", "tslib@^2.3.0", "tslib@^2.4.0", "tslib@2.5.0":
   "integrity" "sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.5.0.tgz"
   "version" "2.5.0"

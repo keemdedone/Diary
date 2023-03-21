@@ -17,7 +17,7 @@ export class ThemeService {
   }
 
   getTheme(): string {
-    this.overlayElement.classList.add(this.currentTheme);
+    this.overlayElement.classList.add(this.currentTheme); // add theme class to overlay element
     return this.currentTheme;
   }
 }

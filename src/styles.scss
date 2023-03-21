@@ -4,14 +4,15 @@
 
 :root {
   --border-color-main: rgba(0, 0, 0, 0.12);
-  --primary-bg: #FFFFFF;
-  --primary-color: #000000;
+  --primary-bg: #FFF;
+  --primary-color: #000;
   --primary-hover: rgba(66, 66, 66, 0.25);
 }
 
 $dark-theme: mat.define-dark-theme((color: (primary: mat.define-palette(mat.$pink-palette),
-      accent: mat.define-palette(mat.$blue-grey-palette),
+      accent: mat.define-palette(mat.$teal-palette),
       warn: mat.define-palette(mat.$red-palette),
+      happy: mat.define-palette(mat.$teal-palette),
     ),
     typography: mat.define-typography-config(),
     density: 0,
@@ -20,17 +21,17 @@ $dark-theme: mat.define-dark-theme((color: (primary: mat.define-palette(mat.$pin
 $light-theme: mat.define-light-theme((color: (primary: mat.define-palette(mat.$indigo-palette),
       accent: mat.define-palette(mat.$pink-palette),
       warn: mat.define-palette(mat.$red-palette),
+      happy: mat.define-palette(mat.$teal-palette),
     ),
   ));
-
 
 @include mat.all-component-themes($light-theme);
 
 .dark-theme {
   --primary-bg: #303030;
-  --primary-color: #FFFFFF;
-  --border-color-main: #606060;
+  --primary-color: #FFF;
   --primary-hover: rgba(255, 255, 255, 0.25);
+  --border-color-main: #606060;
   @include mat.all-component-colors($dark-theme);
 }
 
@@ -40,12 +41,6 @@ $light-theme: mat.define-light-theme((color: (primary: mat.define-palette(mat.$i
   transition:
     background-color 0.35s ease,
     color 0.35s ease;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 html,
