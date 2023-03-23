@@ -1,33 +1,40 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Post, Todo } from '../model/type';
+import { DropDrag, Post, Todo } from '../model/type';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
   private postInformation: Post[] = [];
-  private todoList: Todo = {};
+  private todoList: Todo = { todo: [], done: [] };
   private postSubject = new BehaviorSubject<Post[]>([]);
   private language = localStorage.getItem('LANG') || 0;
 
   constructor() {
     const storedData = localStorage.getItem('POST_DATA');
+    const todoData = localStorage.getItem('TODO_DATA');
+
     if (storedData !== null) {
       this.postInformation = JSON.parse(storedData);
     }
     this.postSubject.next(this.postInformation);
-  }
 
-  getTodo() {
-    const todoData = localStorage.getItem('TODO');
     if (todoData) {
       this.todoList = JSON.parse(todoData);
     }
+  }
+
+  getTodo() {
     return this.todoList;
   }
 
-  setTodo(data: Todo) {}
+  setTodo(todo: DropDrag[], done: DropDrag[]) {
+    this.todoList.todo = todo;
+    this.todoList.done = done;
+    const todoDataString = JSON.stringify(this.todoList);
+    localStorage.setItem('TODO_DATA', todoDataString);
+  }
 
   getLanguage() {
     return Number(this.language);

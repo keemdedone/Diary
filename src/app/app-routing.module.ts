@@ -6,11 +6,11 @@ import { WorkInProcessComponent } from './pages/work-in-process/work-in-process.
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'diary',
+    redirectTo: 'main',
     pathMatch: 'full',
   },
   {
-    path: 'diary',
+    path: 'main',
     loadChildren: () =>
       import('./pages/diary/diary.module').then((d) => d.DiaryModule),
   },

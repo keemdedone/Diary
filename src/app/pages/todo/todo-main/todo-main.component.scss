@@ -2,14 +2,15 @@
     display: flex;
     justify-content: center;
     margin: 2rem auto;
+    gap: 30px;
 }
 
 .container {
-    width: 400px;
-    max-width: 100%;
-    margin: 0 25px 25px 0;
+    max-width: 400px;
+    width: 100%;
     display: inline-block;
     vertical-align: top;
+    user-select: none;
 
     .topic {
         display: flex;
@@ -27,7 +28,6 @@
             padding: 0 10px;
             display: flex;
             align-items: center;
-            font-size: 1em;
 
             .icon {
                 margin: 0;
@@ -35,7 +35,6 @@
             }
         }
     }
-
 
     .list {
         border: solid 1px var(--border-color-main);
@@ -60,6 +59,7 @@
             .box-input {
                 width: 100%;
                 padding: 10px 0 10px 8px;
+                margin: 0 5px;
                 border-radius: 3px;
                 border: none;
                 font-size: 18px;
@@ -83,6 +83,24 @@
                     .icon {
                         margin: 0;
                         scale: 1.3;
+                    }
+
+                    &.edit {
+                        color: #2196F3;
+                        --mat-mdc-button-persistent-ripple-color: #2196f3;
+                        --mat-mdc-button-ripple-color: rgba(33, 150, 243, 0.1);
+                    }
+
+                    &.save {
+                        color: #adff2f;
+                        --mat-mdc-button-persistent-ripple-color: #adff2f;
+                        --mat-mdc-button-ripple-color: rgba(173, 255, 47, 0.1);
+                    }
+
+                    &.favorite {
+                        color: #e91e63;
+                        --mat-mdc-button-persistent-ripple-color: #e91e63;
+                        --mat-mdc-button-ripple-color: rgba(233, 30, 99, 0.1);
                     }
                 }
             }
@@ -157,6 +175,37 @@
         .icon {
             margin: 0;
             margin-right: 5px;
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .todo-component {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        .topic {
+            h2 {
+                font-size: 20px;
+            }
+        }
+
+        .list {
+            .box {
+                .box-input {
+                    font-size: 14px;
+                }
+
+                .box-menu {
+                    .menu-btn {
+                        .icon {
+                            scale: 1;
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -1,9 +1,18 @@
-<ng-container [ngSwitch]="todo[0] !== ''">
+<ng-container
+  [ngSwitch]="
+    this.TodoData.todo.length !== 0 || this.TodoData.done.length !== 0
+  "
+>
   <div class="todo-component" *ngSwitchCase="true">
     <div class="container">
       <div class="topic">
         <h2>{{ Text.todoTitle[lang] }}</h2>
-        <button class="topic-btn" mat-raised-button color="primary">
+        <button
+          class="topic-btn"
+          mat-raised-button
+          color="primary"
+          (click)="addTodoList()"
+        >
           <mat-icon class="icon">add_cricle</mat-icon>
         </button>
       </div>
@@ -15,13 +24,38 @@
         (cdkDropListDropped)="drop($event)"
         class="list"
       >
-        <div class="box" *ngFor="let item of todo; let i = index" cdkDrag>
-          <input type="text" class="box-input" [value]="item" readonly />
+        <div
+          class="box"
+          *ngFor="let item of todo; let i = index"
+          [cdkDragDisabled]="!item.canMove"
+          cdkDrag
+        >
+          <input
+            type="text"
+            class="box-input"
+            [value]="item.value"
+            [readonly]="item.canMove"
+            #todoInputValue
+          />
           <div class="box-menu">
-            <button mat-button type="button" color="primary" class="menu-btn">
-              <mat-icon class="icon">edit</mat-icon>
+            <button
+              mat-button
+              type="button"
+              class="menu-btn"
+              (click)="editTodoList(i, item.canMove, todoInputValue.value)"
+              [ngClass]="item.canMove ? 'edit' : 'save'"
+            >
+              <mat-icon class="icon">
+                {{ item.canMove ? "edit" : "save" }}
+              </mat-icon>
             </button>
-            <button mat-button type="button" color="warn" class="menu-btn">
+            <button
+              mat-button
+              type="button"
+              color="warn"
+              class="menu-btn"
+              (click)="removeTodoList(i)"
+            >
               <mat-icon class="icon">close</mat-icon>
             </button>
           </div>
@@ -44,14 +78,38 @@
         (cdkDropListDropped)="drop($event)"
         class="list"
       >
-        <div class="box" *ngFor="let item of done" cdkDrag>
-          <input type="text" class="box-input" [value]="item" readonly />
+        <div
+          class="box"
+          *ngFor="let item of done; let i = index"
+          [cdkDragDisabled]="!item.canMove"
+          cdkDrag
+        >
+          <input
+            type="text"
+            class="box-input"
+            [value]="item.value"
+            [readonly]="true"
+          />
           <div class="box-menu">
-            <button mat-button type="button" color="primary" class="menu-btn">
-              <mat-icon class="icon">favorite_outlined</mat-icon>
+            <button
+              mat-button
+              type="button"
+              class="menu-btn favorite"
+              (click)="setDoneFavorite(i, item.canMove)"
+            >
+              <mat-icon class="icon">
+                {{ item.canMove ? "favorite_outlined" : "favorite" }}
+              </mat-icon>
             </button>
-            <button mat-button type="button" color="happy" class="menu-btn">
-              <mat-icon class="icon">undo</mat-icon>
+            <button
+              mat-button
+              type="button"
+              color="warn"
+              class="menu-btn"
+              (click)="quickDoneMove(i)"
+              [disabled]="!item.canMove"
+            >
+              <mat-icon class="icon">arrow_back</mat-icon>
             </button>
           </div>
         </div>
@@ -61,7 +119,7 @@
 
   <div class="create-todo-component" *ngSwitchDefault>
     <h1>You have no list...</h1>
-    <button class="create-btn" mat-raised-button (click)="createEmtryTodo()">
+    <button class="create-btn" mat-raised-button (click)="setEmtryTodo()">
       <mat-icon class="icon">add</mat-icon>
       CREATE LIST
     </button>

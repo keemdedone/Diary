@@ -1,22 +1,22 @@
 export const routerLinkMenu = [
   {
-    route: 'diary',
+    route: 'main',
     icon: 'file-signature',
-    Name: ['Diary', 'บันทึกความจำ'],
+    name: ['Diary', 'บันทึกความจำ'],
   },
   {
     route: 'calendar',
     icon: 'calendar',
-    Name: ['Calendar', 'ปฎิทิน'],
+    name: ['Calendar', 'ปฎิทิน'],
   },
   {
     route: 'todo',
     icon: 'list',
-    Name: ['Todo list', 'รายการสิ่งที่ต้องทำ'],
+    name: ['Todo list', 'รายการสิ่งที่ต้องทำ'],
   },
   {
     route: 'email',
     icon: 'mail',
-    Name: ['Email submit', 'ส่งอีเมล์'],
+    name: ['Email submit', 'ส่งอีเมล์'],
   },
 ];

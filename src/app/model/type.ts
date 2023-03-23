@@ -5,6 +5,12 @@ export type Post = {
 };
 
 export type Todo = {
-  todo?: string[];
-  done?: string[];
+  todo: DropDrag[];
+  done: DropDrag[];
+};
+
+export type DropDrag = {
+  value: string;
+  role: string;
+  canMove: boolean;
 };
