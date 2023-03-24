@@ -66,8 +66,13 @@
     <div class="container">
       <div class="topic">
         <h2>{{ Text.doneTitle[lang] }}</h2>
-        <button class="topic-btn" mat-raised-button color="warn">
-          <mat-icon class="icon">remove_cricle</mat-icon>
+        <button
+          class="topic-btn"
+          mat-raised-button
+          color="warn"
+          (click)="setDoneFavoriteAll()"
+        >
+          <mat-icon class="icon">check</mat-icon>
         </button>
       </div>
       <div

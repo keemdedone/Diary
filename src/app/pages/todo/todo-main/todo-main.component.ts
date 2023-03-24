@@ -104,6 +104,12 @@ export class TodoMainComponent implements OnInit {
     this.updateStorage();
   }
 
+  setDoneFavoriteAll() {
+    this.done.map((item) => {
+      item.canMove = false;
+    });
+  }
+
   updateStorage() {
     this.dataService.setTodo(this.todo, this.done);
   }
